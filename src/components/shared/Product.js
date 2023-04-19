@@ -12,6 +12,7 @@ const Product = ({productData}) => {
                <div>
                     <a href="#">details</a>
                     <button>Add To Card</button>
+                    
                </div>
           </div>
      );
