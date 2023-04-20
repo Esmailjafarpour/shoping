@@ -7,7 +7,6 @@ import Product from './shared/Product';
 const Store = () => {
 
      const products = useContext(ProductsContext);
-     console.log(products)
 
      return (
           <div style={{display : "flex" , flexWrap : "wrap" ,justifyContent : "space-between"}}>

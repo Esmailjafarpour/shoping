@@ -18,13 +18,11 @@ const ProductsContextProvider = ({children}) => {
 
      }, []);
 
-
-     return (
-
+     console.log(products)
+     return(
           <ProductsContext.Provider value={products}>
                {children}
           </ProductsContext.Provider>
-
      );
 };
 
