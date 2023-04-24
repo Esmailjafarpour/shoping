@@ -32,7 +32,8 @@ const cartReducer = (state, action) => {
                     return{
                          ...state ,
                          selectedItem :  [...state.selectedItem],
-                         ...sumItems(state.selectedItem)
+                         ...sumItems(state.selectedItem),
+                         checkout : false 
                     }
                          
                     
@@ -42,7 +43,7 @@ const cartReducer = (state, action) => {
                     return{
                          ...state ,
                          selectedItem : [...newSelectedItem],
-                         ...sumItems(state.selectedItem)
+                         ...sumItems(newSelectedItem)
                     }
                         
                     
