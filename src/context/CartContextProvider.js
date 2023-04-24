@@ -8,6 +8,9 @@ const initialState = {
 }
 
 const cartReducer = (state, action) => {
+
+     console.log(state)
+
      switch (action.type) {
 
                case "ADD_ITEM":
@@ -26,10 +29,10 @@ const cartReducer = (state, action) => {
                     
 
                case "REMOVE_ITEM":
-                    const newSelectedItem = state.newSelectedItem.filter(item => item.id  !== action.payload.id)
+                    const newSelectedItem = state.selectedItem.filter(item => item.id  !== action.payload.id)
                     return{
                          ...state ,
-                         selectedItem : [newSelectedItem]
+                         selectedItem : [...newSelectedItem]
                     }
                         
                     
