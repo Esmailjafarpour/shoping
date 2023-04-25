@@ -1,5 +1,6 @@
-import React ,{useContext} from 'react';
-import {Link} from "react-router-dom";
+import React ,{useContext,useEffect,useState} from 'react';
+import {Link , useParams} from "react-router-dom";
+import axios from 'axios';
 //context
 import { ProductsContext } from '../context/ProductsContextProvider';
 
@@ -7,11 +8,33 @@ import { ProductsContext } from '../context/ProductsContextProvider';
 import styles from "./ProductDetails.module.css";
 
 const ProductDetails = (props) => {
-     const id = props.match.params.id;
+     //react-router-dom V5
+     // const id = props.match.params.id;
+     const [state ,setState] = useState({
+          image:"",
+          title:"",
+          description:"",
+          price:"",
+          category:""
+     });
+     const params = useParams();
+     const id = params.id;
+
+     // useEffect(async() => {
+     //      const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
+     //      setState({
+     //           image:response.data.image,
+     //           title:response.data.title,
+     //           description:response.data.description,
+     //           price:response.data.price,
+     //           category:response.data.category 
+     //      })
+     // }, []);
+
      const data = useContext(ProductsContext);
      const product = data[id - 1];
-     console.log(product)
      const {image,title,description,price,category} = product;
+
      
      return (
           <div className={styles.container}>
@@ -21,9 +44,9 @@ const ProductDetails = (props) => {
                     <p className={styles.description}>{description}</p>
                     <p className={styles.category}>{category}</p> 
                     <div className={styles.buttonContainer}>
-                    <span className={styles.price}>{price} $</span>
-                    <Link to="/products">Back to shop</Link>
-               </div>
+                         <span className={styles.price}>{price} $</span>
+                         <Link to="/products">Back to shop</Link>
+                    </div>
                </div>
               
           </div>
